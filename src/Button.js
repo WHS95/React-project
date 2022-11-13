@@ -1,11 +1,13 @@
-import PropTypes from "prop-types";
-import styled from "./Button.module.css";
 
-function Button({ text }) {
-  return <button className={styled.btn}>{text}</button>;
+import styles from "./Button.module.css";
+import PropTypes from "prop-types";
+
+function button({ text }) {
+  return <button className={styles.btn}>{text}</button>;
 }
-Button.propTypes = {
+
+button.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export default Button;
+export default button;
