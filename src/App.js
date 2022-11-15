@@ -1,24 +1,17 @@
-import { useState, useEffect } from "react";
-
-function Hello() {
-  useEffect(() => {
-    console.log("hi");
-    return () => console.log("bye");
-  }, []);
-  return <h1>Hello</h1>;
-}
-
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
+import ErrorPage from "./routes/Error";
 
 function App() {
-  const [showing, setShowing] = useState(false);
-  const onClick = () => setShowing((prev) => !prev);
   return (
-    <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/' errorElement={<ErrorPage />} />
+        <Route path='/movie' element={<Detail />} />
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
